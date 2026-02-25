@@ -26,7 +26,7 @@
     <BuildOutputTargetFolder>Sdk</BuildOutputTargetFolder>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-    <PackageVersion>0.0.149</PackageVersion>
+    <PackageVersion>0.0.700</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,18 +39,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Tasks.Core" VersionOverride="$(MicrosoftBuildMinimumPackageVersion)" ExcludeAssets="Runtime" IncludeAssets="compile; build; native; contentfiles; analyzers; buildtransitive" Version="14.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.9" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.2" />
     <PackageReference Include="Nito.AsyncEx.Tasks" Version="5.1.2" />
     <PackageReference Include="PowerShellStandard.Library" Version="5.1.1" />
     <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.1.3" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Assemblers.Automation" Version="1.3.0" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Assemblers.Common" Version="1.3.0" />
-    <PackageReference Include="Skyline.DataMiner.CICD.DMApp.Common" Version="3.0.2" />
-    <PackageReference Include="Skyline.DataMiner.Core.AppPackageCreator" Version="3.1.1" />
-    <PackageReference Include="Skyline.DataMiner.Core.ArtifactDownloader" Version="3.1.1" />
-    <PackageReference Include="Skyline.DataMiner.CICD.FileSystem" Version="1.4.0" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Common" Version="1.2.1" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Assemblers.Automation" Version="5.1.1" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Assemblers.Common" Version="5.1.1" />
+    <PackageReference Include="Skyline.DataMiner.CICD.DMApp.Common" Version="5.1.1" />
+    <PackageReference Include="Skyline.DataMiner.Core.AppPackageCreator" Version="3.3.0" />
+    <PackageReference Include="Skyline.DataMiner.Core.ArtifactDownloader" Version="3.3.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.FileSystem" Version="1.4.1" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Common" Version="5.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,7 +66,7 @@
 
   <Target Name="LocalTesting" AfterTargets="Pack" Condition="'$(Configuration)' == 'Debug' And $(USERPROFILE.Contains('MichielOD'))">
     <RemoveDir Directories="$(USERPROFILE)\.nuget\packages\skyline.dataminer.sdk\$(PackageVersion)" />
-    <Copy SourceFiles="$(MSBuildProjectDirectory)\$(BaseOutputPath)$(Configuration)\$(AssemblyName).$(PackageVersion).nupkg" DestinationFolder="$(USERPROFILE)\Documents\MyNugets" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\$(BaseOutputPath)$(Configuration)\$(AssemblyName).$(PackageVersion).nupkg" DestinationFolder="$(USERPROFILE)\OneDrive - Skyline Communications NV\Documents\MyNugets" />
     <Message Text="### Finished copying new package. ###" Importance="High" />
   </Target>
 </Project>
